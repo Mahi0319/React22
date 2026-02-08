@@ -8,7 +8,8 @@ function Header(){
     <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
       <span className="ml-3 text-xl">Portfolio</span>
     </a>
-    <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
+    <nav className="flex flex-wrap justify-center gap-2md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400">
+
       <a href="#About" className="mr-5 px-4 py-2 border rounded-lg shadow-sm hover:bg-blue-500 hover:text-white transition duration-300"
 >About me</a>
       <a href="#Skills" className="mr-5 px-4 py-2 border rounded-lg shadow-sm hover:bg-blue-500 hover:text-white transition duration-300"
