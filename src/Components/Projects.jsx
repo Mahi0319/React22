@@ -1,105 +1,95 @@
 import React from "react";
 
 function Projects() {
+  const projects = [
+    {
+      title: "Portfolio Website",
+      category: "Web Development",
+      tech: "HTML, CSS, JavaScript, React",
+      desc: "A personal portfolio website built to showcase my skills, projects, and contact information with a fully responsive modern UI."
+    },
+    {
+      title: "Ship Reservation System",
+      category: "Frontend Project",
+      tech: "HTML, CSS, JavaScript",
+      desc: "An interactive ship reservation interface allowing users to explore ships and simulate booking functionality."
+    },
+    {
+      title: "KIVO — Kids Integrated Value-Oriented Mobile",
+      category: "Concept Web App",
+      tech: "HTML, CSS, JavaScript",
+      desc: "A value-oriented web platform designed for children focusing on structured learning and clean user interface."
+    },
+    {
+      title: "Farmer Soil Testing Kit",
+      category: "IoT Hardware",
+      tech: "Arduino, Soil Sensors, Blynk, ThingSpeak",
+      desc: "An IoT-based soil testing system measuring soil parameters and sending data to cloud platforms for visualization."
+    }
+  ];
+
   return (
-    <section id="Projects" className="text-gray-600 body-font overflow-hidden">
-      <div className="container px-5 py-24 mx-auto">
+    <section
+      id="Projects"
+      className="relative py-28 px-6 bg-black overflow-hidden"
+    >
+      {/* Neon Background Glow */}
+      <div className="absolute w-96 h-96 bg-green-500 rounded-full blur-3xl opacity-10 top-0 right-0"></div>
 
-        <h1 className="text-3xl font-bold text-center mb-12 text-gray-900">
-          My Projects
-        </h1>
+      <div className="max-w-7xl mx-auto relative z-10">
 
-        <div className="-my-8 divide-y-2 divide-gray-200">
+        {/* Heading */}
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-green-400 tracking-wider drop-shadow-[0_0_12px_#00ff00]">
+            My Projects
+          </h2>
 
-          {/* Project 1 */}
-          <div className="py-8 flex flex-wrap md:flex-nowrap">
-            <div className="md:w-64 mb-6 flex-shrink-0 flex flex-col">
-              <span className="font-semibold text-gray-700">Web Development</span>
-              <span className="mt-1 text-gray-500 text-sm">React Project</span>
-            </div>
-
-            <div className="md:flex-grow">
-              <h2 className="text-2xl font-medium text-gray-900 mb-2">
-                Portfolio Website
-              </h2>
-              <p className="leading-relaxed">
-                A personal portfolio website built to showcase my skills,
-                projects, and contact information. Fully responsive and built
-                using modern frontend technologies.
-              </p>
-              <p className="mt-2 text-sm text-blue-500 font-semibold">
-                Tech: HTML, CSS, JavaScript, React
-              </p>
-            </div>
-          </div>
-
-          {/* Project 2 */}
-          <div className="py-8 flex flex-wrap md:flex-nowrap">
-            <div className="md:w-64 mb-6 flex-shrink-0 flex flex-col">
-              <span className="font-semibold text-gray-700">Frontend</span>
-              <span className="mt-1 text-gray-500 text-sm">Workshop Project</span>
-            </div>
-
-            <div className="md:flex-grow">
-              <h2 className="text-2xl font-medium text-gray-900 mb-2">
-                Ship Reservation System
-              </h2>
-              <p className="leading-relaxed">
-                A frontend ship reservation system where users can view ship
-                details and make reservations using a clean and interactive UI.
-              </p>
-              <p className="mt-2 text-sm text-blue-500 font-semibold">
-                Tech: HTML, CSS, JavaScript
-              </p>
-            </div>
-          </div>
-
-          {/* Project 3 */}
-          <div className="py-8 flex flex-wrap md:flex-nowrap">
-            <div className="md:w-64 mb-6 flex-shrink-0 flex flex-col">
-              <span className="font-semibold text-gray-700">Concept Web App</span>
-              <span className="mt-1 text-gray-500 text-sm">UI Focused</span>
-            </div>
-
-            <div className="md:flex-grow">
-              <h2 className="text-2xl font-medium text-gray-900 mb-2">
-                KIVO — Kids Integrated Value-Oriented Mobile
-              </h2>
-              <p className="leading-relaxed">
-                A value-oriented website concept designed for kids combining
-                learning and technology in a simple and user-friendly interface.
-                Focused on clean UI, responsiveness, and structured content.
-              </p>
-              <p className="mt-2 text-sm text-blue-500 font-semibold">
-                Tech: HTML, CSS, JavaScript
-              </p>
-            </div>
-          </div>
-
-          {/* Project 4 */}
-          <div className="py-8 flex flex-wrap md:flex-nowrap">
-            <div className="md:w-64 mb-6 flex-shrink-0 flex flex-col">
-              <span className="font-semibold text-gray-700">IoT Hardware</span>
-              <span className="mt-1 text-gray-500 text-sm">Arduino Based</span>
-            </div>
-
-            <div className="md:flex-grow">
-              <h2 className="text-2xl font-medium text-gray-900 mb-2">
-                Farmer Soil Testing Kit
-              </h2>
-              <p className="leading-relaxed">
-                Implemented a hardware-based soil testing kit using Arduino and
-                sensors to measure soil parameters. Data was sent to the cloud
-                using Blynk and stored/visualized via ThingSpeak graphs.
-                Helped me understand IoT data acquisition and cloud integration.
-              </p>
-              <p className="mt-2 text-sm text-blue-500 font-semibold">
-                Tech: Arduino, Soil Sensors, Blynk, ThingSpeak
-              </p>
-            </div>
-          </div>
-
+          <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
+            A collection of projects showcasing my frontend and IoT development skills.
+          </p>
         </div>
+
+        {/* Grid */}
+        <div className="grid md:grid-cols-2 gap-10">
+          {projects.map((project, index) => (
+            <div
+              key={index}
+              className="border border-green-500 rounded-2xl p-8 bg-black
+                         shadow-[0_0_15px_rgba(0,255,0,0.2)]
+                         hover:shadow-[0_0_35px_rgba(0,255,0,0.6)]
+                         hover:-translate-y-3
+                         transition duration-500"
+            >
+              <p className="text-sm text-green-400 font-semibold mb-2">
+                {project.category}
+              </p>
+
+              <h3 className="text-2xl font-bold text-white mb-4">
+                {project.title}
+              </h3>
+
+              <p className="text-gray-400 mb-6 leading-relaxed">
+                {project.desc}
+              </p>
+
+              <p className="text-sm text-green-500 font-medium">
+                Tech Stack: {project.tech}
+              </p>
+
+              {/* Buttons */}
+              <div className="mt-6 flex gap-4">
+                <button className="px-4 py-2 border border-green-500 text-green-400 rounded-lg hover:bg-green-500 hover:text-black transition duration-300">
+                  View
+                </button>
+
+                <button className="px-4 py-2 bg-green-500 text-black rounded-lg font-semibold hover:shadow-[0_0_15px_#00ff00] transition duration-300">
+                  Code
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+
       </div>
     </section>
   );

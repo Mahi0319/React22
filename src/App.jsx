@@ -9,19 +9,27 @@ import Skills from './Components/Skills'
 import Projects from './Components/Projects'
 import Certificates from './Components/Certifications'
 import Contact from './Components/Contact'
+import { motion } from 'framer-motion'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <Header/>
-      <Hero/>
-      <About/>
-      <Skills/>
-      <Projects/>
-      <Certificates/>
-      <Contact/>
+    <motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  exit={{ opacity: 0 }}
+  transition={{ duration: 0.5 }}
+>
+  <Header/>
+  <Hero />
+  <About />
+  <Skills />
+  <Projects />
+  <Certificates/>
+  <Contact />
+</motion.div>
     </>
   )
 }

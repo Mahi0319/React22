@@ -1,83 +1,107 @@
-import React from "react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 function Certificates() {
+  const [selectedCert, setSelectedCert] = useState(null);
+
   const certs = [
     {
       title: "Vibe Coding – Top Performer",
-      desc: "Recognized as a top performer for demonstrating strong problem-solving and coding skills during the Vibe Coding event.",
-      img: "/VIBE CODING.jpeg",
+      desc: "Recognized for strong problem-solving and coding performance.",
+      file: "/public/VIBE CODING.jpeg",
     },
     {
-      title: "2nd Prize – Web Architect (CSI Mahotsav)",
-      desc: "Awarded second prize for designing and presenting a web architecture solution in a competitive technical event.",
-      img: "/Web architect 2 prize.jpeg",
+      title: "2nd Prize – Web Architect",
+      desc: "Secured second place in CSI Mahotsav technical competition.",
+      file: "/public/Web architect 2 prize.jpeg",
     },
     {
-      title: "Full Stack Development Completion",
-      desc: "Successfully completed full stack training covering frontend and backend fundamentals and project development.",
-      img: "/Full stack 2-1.jpeg",
+      title: "Full Stack Development",
+      desc: "Completed structured full stack training program.",
+      file: "/public/Full stack 2-1.jpeg",
     },
     {
-      title: "Wiser Qubitech – Course Completion",
-      desc: "Completed industry-focused technical training program enhancing practical development skills.",
-      img: "/WISER .jpeg",
+      title: "Wiser Qubitech",
+      desc: "Industry-focused technical certification.",
+      file: "/public/WISER .jpeg",
     },
     {
-      title: "Innovarsity – Workshop Certificate",
-      desc: "Participated in hands-on technical workshop focused on modern development tools and practices.",
-      img: "/INNOVARSITY workshop.jpeg",
+      title: "Innovarsity Workshop",
+      desc: "Hands-on development workshop.",
+      file: "/public/INNOVARSITY workshop.jpeg",
     },
   ];
 
   return (
-    <section id="Certifications" className="text-gray-600 body-font bg-gray-50">
-      <div className="container px-5 py-24 mx-auto">
+    <section className="relative py-28 px-6 bg-black overflow-hidden">
+      <div className="max-w-5xl mx-auto">
 
-        {/* Heading */}
-        <div className="text-center mb-16">
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">
-            Certifications
-          </h1>
+        <h2 className="text-4xl text-center font-bold text-green-400 mb-16">
+          Certifications
+        </h2>
 
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-            These certifications highlight my achievements and active
-            participation in technical learning, workshops, and development
-            programs that strengthened my practical skills.
-          </p>
-        </div>
-
-        {/* Cards */}
-        <div className="space-y-8">
-
+        <div className="space-y-10">
           {certs.map((c, index) => (
-            <div
+            <motion.div
               key={index}
-              className="flex flex-col md:flex-row items-center bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition"
+              whileHover={{ scale: 1.03 }}
+              className="border border-green-500 rounded-2xl p-8 bg-black
+                         shadow-[0_0_15px_rgba(0,255,0,0.2)]
+                         hover:shadow-[0_0_35px_rgba(0,255,0,0.6)]
+                         transition duration-500"
             >
-              {/* Image */}
-              <img
-                src={c.img}
-                alt="certificate"
-                className="md:w-64 w-full h-48 object-cover"
-              />
+              <h3 className="text-xl text-green-400 mb-3">
+                {c.title}
+              </h3>
 
-              {/* Text */}
-              <div className="p-6 flex-1">
-                <h2 className="text-xl font-semibold text-gray-900 mb-2">
-                  {c.title}
-                </h2>
+              <p className="text-gray-400 mb-4">
+                {c.desc}
+              </p>
 
-                <p className="leading-relaxed mb-4">{c.desc}</p>
-
-                <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg transition">
-                  View Certificate
-                </button>
-              </div>
-            </div>
+              <button
+                onClick={() => setSelectedCert(c.file)}
+                className="px-4 py-2 bg-green-500 text-black rounded-full font-semibold hover:bg-green-400 transition"
+              >
+                View Certificate
+              </button>
+            </motion.div>
           ))}
-
         </div>
       </div>
+
+      {/* Modal Popup */}
+      <AnimatePresence>
+        {selectedCert && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+          >
+            <motion.div
+              initial={{ scale: 0.7 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.7 }}
+              transition={{ duration: 0.3 }}
+              className="relative bg-white p-4 rounded-xl max-w-3xl w-full"
+            >
+              <button
+                onClick={() => setSelectedCert(null)}
+                className="absolute top-3 right-3 text-black font-bold text-xl"
+              >
+                ✕
+              </button>
+
+              <img
+                src={selectedCert}
+                alt="Certificate"
+                className="w-full rounded-lg"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
     </section>
   );
 }

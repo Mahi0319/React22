@@ -1,72 +1,58 @@
 import React from "react";
 
 function Skills() {
+  const skills = [
+    { name: "HTML", desc: "Structure and semantic layout of web pages." },
+    { name: "CSS / Tailwind", desc: "Responsive styling and modern UI design." },
+    { name: "JavaScript", desc: "Interactive and dynamic web functionality." },
+    { name: "React.js", desc: "Component-based frontend development." },
+    { name: "C", desc: "Programming fundamentals and logic building." },
+    { name: "Java & Python", desc: "OOP concepts and problem solving." },
+  ];
+
   return (
-    <section id="Skills" className="text-gray-600 body-font">
-      <div className="container px-5 py-24 mx-auto">
+    <section
+      id="Skills"
+      className="relative py-28 px-6 bg-black overflow-hidden"
+    >
+      {/* Neon Background Glow */}
+      <div className="absolute w-96 h-96 bg-green-500 rounded-full blur-3xl opacity-10 bottom-0 right-0"></div>
+
+      <div className="max-w-6xl mx-auto relative z-10">
 
         {/* Heading */}
-        <div className="flex flex-wrap w-full mb-12 flex-col items-center text-center">
-          <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-green-400 tracking-wider drop-shadow-[0_0_12px_#00ff00]">
             My Skills
-          </h1>
-          <p className="lg:w-1/2 w-full leading-relaxed text-gray-500">
-            Technologies and programming languages I work with while building
-            modern web applications.
+          </h2>
+
+          <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
+            Technologies and programming languages I use to build modern,
+            scalable and interactive applications.
           </p>
         </div>
 
-        {/* Cards */}
-        <div className="flex flex-wrap -m-4">
+        {/* Skill Grid */}
+        <div className="grid md:grid-cols-3 gap-8">
+          {skills.map((skill, index) => (
+            <div
+              key={index}
+              className="border border-green-500 rounded-2xl p-8 
+                         bg-black 
+                         shadow-[0_0_15px_rgba(0,255,0,0.2)]
+                         hover:shadow-[0_0_30px_rgba(0,255,0,0.6)]
+                         hover:-translate-y-2
+                         transition duration-500"
+            >
+              <h3 className="text-xl font-semibold text-green-400 mb-4">
+                {skill.name}
+              </h3>
 
-          {/* HTML */}
-          <div className="xl:w-1/3 md:w-1/2 p-4">
-            <div className="border border-gray-200 p-6 rounded-lg">
-              <h2 className="text-lg text-gray-900 font-medium mb-2">HTML</h2>
-              <p>Structure and semantic layout of web pages.</p>
+              <p className="text-gray-400">
+                {skill.desc}
+              </p>
             </div>
-          </div>
-
-          {/* CSS */}
-          <div className="xl:w-1/3 md:w-1/2 p-4">
-            <div className="border border-gray-200 p-6 rounded-lg">
-              <h2 className="text-lg text-gray-900 font-medium mb-2">CSS / Tailwind</h2>
-              <p>Responsive styling and modern UI design.</p>
-            </div>
-          </div>
-
-          {/* JavaScript */}
-          <div className="xl:w-1/3 md:w-1/2 p-4">
-            <div className="border border-gray-200 p-6 rounded-lg">
-              <h2 className="text-lg text-gray-900 font-medium mb-2">JavaScript</h2>
-              <p>Interactive and dynamic web functionality.</p>
-            </div>
-          </div>
-
-          {/* React */}
-          <div className="xl:w-1/3 md:w-1/2 p-4">
-            <div className="border border-gray-200 p-6 rounded-lg">
-              <h2 className="text-lg text-gray-900 font-medium mb-2">React.js</h2>
-              <p>Component-based frontend development.</p>
-            </div>
-          </div>
-
-          {/* C */}
-          <div className="xl:w-1/3 md:w-1/2 p-4">
-            <div className="border border-gray-200 p-6 rounded-lg">
-              <h2 className="text-lg text-gray-900 font-medium mb-2">C</h2>
-              <p>Programming fundamentals and logic building.</p>
-            </div>
-          </div>
-
-          {/* Java / Python */}
-          <div className="xl:w-1/3 md:w-1/2 p-4">
-            <div className="border border-gray-200 p-6 rounded-lg">
-              <h2 className="text-lg text-gray-900 font-medium mb-2">Java & Python</h2>
-              <p>Object-oriented concepts and problem solving.</p>
-            </div>
-          </div>
-
+          ))}
         </div>
 
       </div>
