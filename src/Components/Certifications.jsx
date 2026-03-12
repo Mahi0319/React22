@@ -33,7 +33,9 @@ function Certificates() {
   ];
 
   return (
-    <section className="relative py-28 px-6 bg-black overflow-hidden">
+    <section 
+    id="Certifications"
+    className="relative py-28 px-6 bg-black overflow-hidden">
       <div className="max-w-5xl mx-auto">
 
         <h2 className="text-4xl text-center font-bold text-green-400 mb-16">

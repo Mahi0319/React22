@@ -1,43 +1,74 @@
 import React from "react";
-
+import { motion } from "framer-motion";
 function About() {
   return (
     <section
       id="About"
-      className="relative py-28 px-6 bg-black overflow-hidden"
+      className="relative py-32 px-6 bg-black overflow-hidden"
     >
-      {/* Neon Background Glow */}
-      <div className="absolute w-96 h-96 bg-green-500 rounded-full blur-3xl opacity-10 top-10 left-10"></div>
 
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center relative z-10">
+      {/* Glow Background */}
+      <div className="absolute w-72 h-72 bg-green-500 opacity-10 blur-3xl rounded-full top-20 left-10"></div>
+      <div className="absolute w-72 h-72 bg-green-500 opacity-10 blur-3xl rounded-full bottom-10 right-10"></div>
 
-        {/* Left Content */}
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center relative z-10">
+
+        {/* LEFT SIDE */}
         <div>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-green-400 tracking-wider drop-shadow-[0_0_12px_#00ff00] mb-6">
-            About Me
+
+          <h2 className="text-5xl font-bold mb-8">
+            About <span className="text-green-400">Me</span>
           </h2>
 
           <p className="text-gray-400 text-lg leading-relaxed mb-6">
             I am a passionate Frontend Developer focused on building
-            modern, responsive, and interactive web applications using
-            React and Tailwind CSS.
+            modern and responsive web applications using React and Tailwind CSS.
           </p>
 
-          <p className="text-gray-500 leading-relaxed">
-            My goal is to create futuristic UI designs with smooth user
-            experience and clean structure. I continuously improve my
-            skills and explore new technologies.
+          <p className="text-gray-500 leading-relaxed mb-10">
+            My goal is to create beautiful UI designs with smooth user
+            experience and clean architecture. I constantly learn new
+            technologies to improve my development skills.
           </p>
+
+          {/* Stats */}
+          <div className="flex gap-10">
+
+            <div>
+              <h3 className="text-3xl font-bold text-green-400">5+</h3>
+              <p className="text-gray-500">Projects</p>
+            </div>
+
+            <div>
+              <h3 className="text-3xl font-bold text-green-400">1+</h3>
+              <p className="text-gray-500">Years Learning</p>
+            </div>
+
+            <div>
+              <h3 className="text-3xl font-bold text-green-400">5+</h3>
+              <p className="text-gray-500">Technologies</p>
+            </div>
+
+          </div>
+
         </div>
 
-        {/* Right Neon Card */}
-        <div className="border border-green-500 rounded-2xl p-10 
-                        shadow-[0_0_20px_rgba(0,255,0,0.3)] 
-                        hover:shadow-[0_0_35px_rgba(0,255,0,0.6)] 
-                        transition duration-500">
+        {/* RIGHT SIDE CARD */}
+        <div
+          className="
+          bg-white/5
+          backdrop-blur-lg
+          border border-green-500/20
+          rounded-3xl
+          p-10
+          shadow-xl
+          hover:shadow-green-500/20
+          transition duration-500
+          "
+        >
 
-          <h3 className="text-2xl font-semibold text-green-400 mb-6">
-            My Skills
+          <h3 className="text-2xl font-semibold text-green-400 mb-8">
+            Skills
           </h3>
 
           <div className="space-y-6">
@@ -46,27 +77,32 @@ function About() {
               { name: "HTML", width: "90%" },
               { name: "CSS", width: "85%" },
               { name: "JavaScript", width: "80%" },
-              { name: "React", width: "75%" },
-              { name: "Tailwind CSS", width: "85%" },
+              { name: "React", width: "65%" },
+              { name: "Tailwind CSS", width: "60%" },
             ].map((skill) => (
               <div key={skill.name}>
-                <div className="flex justify-between mb-1 text-gray-400">
+
+                <div className="flex justify-between text-gray-400 mb-2">
                   <span>{skill.name}</span>
                   <span>{skill.width}</span>
                 </div>
 
-                <div className="w-full bg-gray-800 rounded-full h-2">
+                <div className="w-full bg-gray-800 h-2 rounded-full">
+
                   <div
-                    className="bg-green-500 h-2 rounded-full shadow-[0_0_10px_#00ff00]"
+                    className="bg-green-400 h-2 rounded-full transition-all duration-700"
                     style={{ width: skill.width }}
                   ></div>
+
                 </div>
+
               </div>
             ))}
 
           </div>
 
         </div>
+
       </div>
     </section>
   );
